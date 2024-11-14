@@ -1,0 +1,28 @@
+<div id="<%= dom_id(movie) %>">
+  <% if @movie && @movie.photos.attached? %>
+    <% @movie.photos.each do |photo| %>
+      <div class="photo-item">
+        <%= image_tag photo %>
+        <%= button_to t('actions.delete'), destroy_photo_movie_path(@movie, photo_id: photo.id),
+                      method: :delete, 
+                      data: { confirm: 'Tem certeza de que deseja excluir esta foto?' },
+                      class: 'btn btn-danger btn-sm' %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <p>
+    <strong><%= t('activerecord.attributes.movie.title') %>:</strong>
+    <%= movie.title %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.movie.description') %>:</strong>
+    <%= movie.description %>
+  </p>
+
+  <p>
+    <strong><%= t('activerecord.attributes.movie.release_year') %>:</strong>
+    <%= movie.release_year %>
+  </p>
+</div>

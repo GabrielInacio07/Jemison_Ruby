@@ -1,0 +1,10 @@
+<h1><%=t('activerecord.attributes.movie.titles.editing')%></h1>
+
+<%= render "form", movie: @movie %>
+
+<br>
+
+<div>
+  <%= link_to t('activerecord.attributes.movie.buttons.show'), @movie %> |
+  <%= link_to t('activerecord.attributes.movie.buttons.back'), movies_path %>
+</div>

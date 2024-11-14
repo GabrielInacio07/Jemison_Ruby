@@ -1,0 +1,21 @@
+<p>Olá <%= user_signed_in? ? current_user.email : 'visitante' %></p>
+<%= button_to 'Sair',  destroy_user_session_path, method: :delete %>
+
+<p style="color: green"><%= notice %></p>
+
+<h1><%= t('activerecord.attributes.index')%></h1>
+
+<div id="movies" class="row row-cols-1 row-cols-md-3 g-4">
+  <% @movies.each do |movie| %>
+    <div class="col">
+      <div class="card h-100">
+        <%= render movie %>
+        <div class="card-body">
+          <p>
+            <%= link_to t('activerecord.attributes.movie.buttons.show'), movie, class: 'btn btn-primary' %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
